@@ -1,7 +1,7 @@
 #include "Luogu_Borrowing_base.h"
 
 int main() {
-	SM::eg_2_3();
+	SM::ex_2_1_3();
 
 	return 0;
 }

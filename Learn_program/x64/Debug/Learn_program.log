@@ -1,2 +1,11 @@
 ﻿  Mian_Luogu_Borrowing_base.cpp
+D:\Microsoft Visual Studio\2022\Project\Learn_program\Luogu_Borrowing_base.h(205,14): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  (编译源文件“Mian_Luogu_Borrowing_base.cpp”)
+  
+D:\Microsoft Visual Studio\2022\Project\Learn_program\Luogu_Borrowing_base.h(221,24): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  (编译源文件“Mian_Luogu_Borrowing_base.cpp”)
+  
+D:\Microsoft Visual Studio\2022\Project\Learn_program\Luogu_Borrowing_base.h(243,17): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+  (编译源文件“Mian_Luogu_Borrowing_base.cpp”)
+  
   Learn_program.vcxproj -> D:\Microsoft Visual Studio\2022\Project\Learn_program\x64\Debug\Learn_program.exe
