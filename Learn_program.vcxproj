@@ -123,7 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Mian_Luogu_Borrowing_base.cpp" />
+    <ClCompile Include="Mian_Learn.program.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Luogu_Borrowing_base.h" />
