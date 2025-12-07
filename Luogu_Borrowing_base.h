@@ -218,7 +218,7 @@ namespace SM{
 		std::cin >> Students_temp1 >> Time_temp1;
 
 		double rate = Classroom / (Students *Time);
-		int Classsroom_temp1 = Students_temp1 * Time_temp1 * rate;
+		Classroom_temp1 = Students_temp1 * Time_temp1 * rate;
 		std::cout << Classroom_temp1 << "\n";
 	}
 
@@ -295,6 +295,147 @@ namespace SM{
 		double amountUim = principal * (1 + rate2 * years);
 
 		printf("%.2f %.2f\n", amountA, amountUim);
+	}
+
+	inline void ex_2_2() {
+		double a  = 0.0, b = 0.0, c = 0.0;
+		std::cin >> a >> b >> c;
+
+		double p = (a + b + c) / 2;
+		double delta = sqrt(p * (p - a) * (p - b) * (p - c));
+		printf("%.1f\n", delta);
+	}
+
+	inline void ex_2_3() {
+    	//eg_2_1
+    	{
+        	int v_a = 5, v_yao = 8, distance = 100;
+        	double delta, ans;
+        	delta = v_yao - v_a;
+        	ans = distance / delta;
+        	printf("%.15f\n", ans);
+    	}
+
+    	//eg_2_2
+    	{
+        	int ans1;
+        	char ans2;
+        	ans1 = 'M' - 'A' + 1;
+        	ans2 = 'A' + 18 - 1;
+        	printf("%d\n", ans1);
+        	printf("%c\n", ans2);
+    	}
+
+    	//eg_2_3
+    	{
+        	#define PI 3.141593
+        	int r1 = 4, r2 = 10;
+        	double V, l;
+        	V = 4.0 / 3 * PI * (r1 * r1 * r1 + r2 * r2 * r2);
+        	l = pow(V, 1.0 / 3);
+        	printf("%d\n", (int)l);
+        	#undef PI
+    	}
+
+    	//eg_2_4
+    	{
+        	double a = 1, b = -100, c = 2400;
+        	double delta, ans;
+        	delta = pow(b, 2) - 4 * a * c;
+        	ans = (-b + sqrt(delta)) / (2 * a);
+        	printf("%d\n", 110 - (int)(ans + 0.5));
+    	}
+
+    	//eg_2_5
+    	{
+        	int t, n;
+        	scanf("%d %d", &t, &n);
+        	printf("%d\n", t * n);
+    	}
+
+    	//eg_2_6
+    	{
+        	char ch, ans;
+        	scanf(" %c", &ch);
+        	ans = ch - 'a' + 'A';
+        	printf("%c\n", ans);
+    	}
+
+    	//eg_2_7
+    	{
+        	double p;
+        	int q, a, b, c, d;
+        	scanf("%lf", &p);
+        	q = (int)(p * 10);
+        	a = q / 1000;
+        	b = q / 100 % 10;
+        	c = q / 10 % 10;
+        	d = q % 10;
+        	printf("%d.%d%d%d\n", d, c, b, a);
+    	}
+
+    	//eg_2_8
+    	{
+        	double t;
+        	int n;
+        	scanf("%lf %d", &t, &n);
+        	printf("%.3f\n%d\n", t / n, n * 2);
+    	}
+
+    	//eg_2_9
+    	{
+        	int a, b, t;
+        	scanf("%d %d", &a, &b);
+        	t = a; a = b; b = t;
+        	printf("%d %d\n", a, b);
+    	}
+
+    	//eg_2_10
+    	{
+        	int a, b, c, d, e, f, delta;
+        	scanf("%d %d %d %d", &a, &b, &c, &d);
+        	delta = (60 * c + d) - (60 * a + b);
+        	e = delta / 60;
+        	f = delta % 60;
+        	printf("%d %d\n", e, f);
+    	}
+
+    	//eg_2_11
+    	{
+        	int a, b, c;
+        	scanf("%d %d %d", &a, &b, &c);
+        	printf("%d\n", a * 2 / 10 + b * 3 / 10 + c * 5 / 10);
+    	}
+
+    	//eg_2_12
+    	{
+        	int s, v;
+        	scanf("%d %d", &s, &v);
+        	int t_walk = (int)ceil(1.0 * s / v) + 10;
+        	int from_zero = 60 * (24 + 8) - t_walk;
+        	int hh = (from_zero / 60) % 24;
+        	int mm = from_zero % 60;
+        	printf("%02d:%02d\n", hh, mm);
+    	}
+	}
+
+	inline void ex_2_4() {
+		float a = 0.1;
+		printf("%d", int(2 - a * a * 100));
+		//printf("%.10f", 2 - a * a *100);
+	}
+
+	inline void ex_2_5() {
+		int a = 0, b = 0;
+		std::cin >> a >> b;
+		std::cout << (a * 10 + b) / 19 << "\n";
+	}
+
+	inline void ex_2_6() {
+		int m = 0, t = 0, s = 0;
+		std::cin >> m >> t >> s;
+
+		std::cout << m- (s / t) << "\n";
 	}
 }
 
