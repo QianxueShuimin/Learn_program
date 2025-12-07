@@ -23,5 +23,11 @@
     <ClInclude Include="Luogu_Borrowing_base.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Nowcoder_Race.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Header_file.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

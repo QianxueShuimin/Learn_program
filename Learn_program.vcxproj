@@ -126,7 +126,9 @@
     <ClCompile Include="Mian_Learn.program.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header_file.h" />
     <ClInclude Include="Luogu_Borrowing_base.h" />
+    <ClInclude Include="Nowcoder_Race.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

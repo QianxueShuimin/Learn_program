@@ -3,11 +3,7 @@
 #ifndef LUOGU_BORROWING_BASE_H
 #define LUOGU_BORROWING_BASE_H
 
-#define _CRT_SECURE_NO_WARNINGS
-
-#include <iostream>
-#include <cmath>
-#include <cstdio>
+#include "Header_file.h"
 
 namespace SM{
 	inline void eg_1_1() {
@@ -437,6 +433,8 @@ namespace SM{
 
 		std::cout << m- (s / t) << "\n";
 	}
+
+
 }
 
 #endif // LUOGU_BORROWING_BASE_H
