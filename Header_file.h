@@ -12,5 +12,6 @@
 #include <vector>
 #include <cmath>
 #include <cstdio>
+#include <algorithm>
 
 #endif // !HEADER_FILE_H

@@ -29,5 +29,8 @@
     <ClInclude Include="Header_file.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Starrycoding_Question_bank.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

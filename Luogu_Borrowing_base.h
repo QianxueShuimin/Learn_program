@@ -434,7 +434,290 @@ namespace SM{
 		std::cout << m- (s / t) << "\n";
 	}
 
+	inline void ex_2_7() {
+		std::cout << "Ŀǰδ������\n";
+	}
 
+	inline void eg_3_1() {
+		int a = 0, b = 0;
+		std::cin >> a >> b;
+		std::cout << (a > b) << " ";
+		std::cout << (a <= b) << " ";
+		std::cout << (a != b) << "\n";
+	}
+
+	inline void eg_3_2() {
+		int x = 0;
+		bool p1 = false, p2 = false;
+
+		std::cin >> x;
+		p1 = x % 2 == 0;
+		p2 = 4 < x && x <= 12;
+
+		std::cout << (p1 && p2) << ' ';
+		std::cout << (p1 || p2) << ' ';
+		std::cout << (p1 ^ p2) << ' ';
+		std::cout << (!p1 && !p2);
+		//std::cout << !(p1 || p2);
+	}
+
+	inline void eg_3_3() {
+		int x = 0;
+		bool p = false;
+
+		std::cin >> x;
+		p = (x % 400 == 0) || (x % 4 == 0) && (x % 100 != 0);
+		//p = !(x % 400) || !(x % 4) && x % 100;
+
+		std::cout << p << "\n";
+	}
+
+	inline void eg_3_4() {
+		int x = 0;
+		std::cin >> x;
+
+		std::cout << "Today, I ate " << x << " apple";
+		if (x != 0 && x != 1) {	//!(x == 0 || x == 1)
+			std::cout << "s";
+		}
+
+		std::cout << ".\n";
+	}
+
+	inline void eg_3_5() {
+		int n = 0;
+		std::cin >> n;
+
+		if ((5 * n) < (11 + 3 * n)) {
+			std::cout << "Local\n";
+		}
+		else {
+			std::cout << "Luogu\n";
+		}
+	}
+
+	inline void eg_3_6() {
+		char opt{};
+		std::cin >> opt;
+
+		switch (opt)
+		{
+		case 'G':
+			std::cout << "Hello, my master!\n";
+		case 'N':
+			std::cout << "I'm Xiaoluo.\n";
+			break;
+		case 'S':
+			std::cout << "Teinei teinei teinei~\n";
+			break;
+		case 'B':
+		case 'Q':
+			std::cout << "Bye bye!\n";
+			break;
+		default:
+			std::cout << "Sorry...\n";
+		}
+	}
+
+	inline void eg_3_7() {
+		double m = 0.0, h = 0.0, BMI = 0.0;
+		std::cin >> m >> h;
+
+		BMI = m / h / h;
+		if (BMI < 18.5) {
+			std::cout << "Underweight\n";
+		}
+		else if (BMI < 24) {
+			std::cout << "Normal\n";
+		}
+		else {
+			std::cout << BMI << std::endl;
+			std::cout << "Overweight" << std::endl;
+		}
+	}
+
+	inline void eg_3_8() {
+		int a = 0, b = 0, c = 0;
+		std::cin >> a >> b >> c;
+		scanf("%d %d %d", &a, &b, &c);
+
+		if (a <= b && b <= c) {
+			printf("%d %d %d\n", a, b, c);
+		}
+		else if (a <= c && c <= b) {
+			printf("%d %d %d\n", a, c, b);
+		}
+		else if (b <= a && a <= c) {
+			printf("%d %d %d\n", b, a, c);
+		}
+		else if (b <= c && c <= a) {
+			printf("%d %d %d\n", b, c, a);
+		}
+		else if (c <= a && a <= b) {
+			printf("%d %d %d\n", c, a, b);
+		}
+		else {	//if (c <= b && b <= a)
+			printf("%d %d %d\n", c, b, a);
+		}
+
+		//eg_3_8 �ڶ��ֽⷨ
+		/*
+		int a = 0, b = 0, c = 0;
+		scanf("%d %d %d", &a, &b, &c);
+		if (a >= b && a >= c) {
+			if (b >= c) {
+				printf("%d %d %d\n", c, b, a);
+			}
+			else {
+				printf("%d %d %d\n", b, c, a);
+			}
+		}
+		else if (b >= a && b >= c) {
+			if (a >= c) {
+				printf("%d %d %d\n", c, a, b);
+			}
+			else {
+				printf("%d %d %d\n", a, c, b);
+			}
+		}
+		else {	//if (c >= a && c >= b)
+			if (a >= b) {
+				printf("%d %d %d\n", b, a, c);
+			}
+			else {
+				printf("%d %d %d\n", a, b, c);
+			}
+		}
+		*/
+	}
+
+	inline void eg_3_9() {
+		int y = 0, m = 0;
+		std::cin >> y >> m;
+		switch (m) {
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			std::cout << 31 << "\n";
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			std::cout << 30 << "\n";
+			break;
+		case 2:
+			if (!(y % 400) || !(y % 4) && y % 100) {
+				std::cout << 29 << "\n";
+			}
+			else {
+				std::cout << 28 << "\n";
+			}
+			break;
+		default:
+			break;
+		}
+	}
+
+	inline void eg_3_10() {
+		int t1 = 0, t2 = 0, maxtime = 8, maxday = 0;
+
+		std::cin >> t1 >> t2;
+		if (t1 + t2 > maxtime) {
+			maxtime = t1 + t2;
+			maxday = 1;
+		}
+
+		std::cin >> t1 >> t2;
+		if (t1 + t2 > maxtime) {
+			maxtime = t1 + t2;
+			maxday = 2;
+		}
+
+		std::cin >> t1 >> t2;
+		if (t1 + t2 > maxtime) {
+			maxtime = t1 + t2;
+			maxday = 3;
+		}
+
+		std::cin >> t1 >> t2;
+		if (t1 + t2 > maxtime) {
+			maxtime = t1 + t2;
+			maxday = 4;
+		}
+
+		std::cin >> t1 >> t2;
+		if (t1 + t2 > maxtime) {
+			maxtime = t1 + t2;
+			maxday = 5;
+		}
+
+		std::cin >> t1 >> t2;
+		if (t1 + t2 > maxtime) {
+			maxtime = t1 + t2;
+			maxday = 6;
+		}
+
+		std::cin >> t1 >> t2;
+		if (t1 + t2 > maxtime) {
+			maxtime = t1 + t2;
+			maxday = 7;
+		}
+
+		std::cout << maxday << "\n";
+	}
+
+	inline void eg_3_11() {
+		int n = 0, n1 = 0, n2 = 0, n3 = 0, p1 = 0, p2 = 0, p3 = 0, t1 = 0, t2 = 0, t3 = 0, total = 0;
+		std::cin >> n >> n1 >> p1 >> n2 >> p2 >> n3 >> p3;
+
+		t1 = !(n % n1) ? n / n1 * p1 : (n / n1 + 1) * p1;
+		t2 = !(n % n2) ? n / n2 * p2 : (n / n2 + 1) * p2;
+		t3 = !(n % n3) ? n / n3 * p3 : (n / n3 + 1) * p3;
+
+		total = t1;
+		if (t2 < total) total = t2;
+		if (t3 < total) total = t3;
+
+		std::cout << total << "\n";
+	}
+
+	inline void eg_3_12() {
+		char a{}, b{}, c{}, d{}, e{}, f{}, g{}, h{}, i{}, j{};
+		int check = 0;
+
+		scanf("%c - %c %c %c - %c %c %c %c %c - %c", &a, &b, &c, &d, &e, &f, &g, &h, &i, &j);
+		check = ((a - '0') * 1 + (b - '0') * 2 + (c - '0') * 3 + (d - '0') * 4 + (e - '0') * 5 + (f - '0') * 6 + (g - '0') * 7 + (h - '0') * 8 + (i - '0') * 9);
+		check %= 11;
+
+		if (j == 'X' && check == 10 || check == j - '0') {
+			printf("Right\n");
+		}
+		else {
+			printf("%c - %c %c %c - %c %c %c %c %c - %c", a, b, c, d, e, f, g, h, i, check == 10 ? 'X' : check + '0');
+		}
+	}
+
+	inline void ex_3_1() {
+		int a = 3, b = 4, c = 5;
+		std::cout << (a < b || b > c || a > b) << "\n";
+		std::cout << (a > c || b > a && c > b) << "\n";
+		std::cout << (b - a == c - b) << "\n";
+		std::cout << (a * b - c > a * c - b || a * b + b * c == b * b * (c - a)) << "\n";
+	}
+
+	inline void ex_3_2() {
+		int a = 1, b = 0, c = 1;
+		std::cout << (!a || !b) << "\n";
+		std::cout << ((a && !a) ||  (b || !b)) << "\n";
+		std::cout << (a && b && c || !a || !c) << "\n";
+		std::cout << (a && (b && c || a && c)) << "\n";
+		std::cout << (!b && (c && (a && (!c || (!b || (!a)))))) << "\n";  
+	}
 }
 
 #endif // LUOGU_BORROWING_BASE_H
