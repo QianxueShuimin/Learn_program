@@ -718,6 +718,434 @@ namespace SM{
 		std::cout << (a && (b && c || a && c)) << "\n";
 		std::cout << (!b && (c && (a && (!c || (!b || (!a)))))) << "\n";  
 	}
+
+	inline void ex_3_3() {
+		int x = 0;
+		std::cin >> x;
+
+		std::cout << (x % 2 == 0) << "\n";
+		std::cout << (x >= 1000 && x < 10000) << "\n";
+		std::cout << (x >= 0 && int(sqrt(x) + 0.5) * int(sqrt(x) + 0.5) == x);
+		
+		int x_cbrt = static_cast<int>(cbrt(x) + (cbrt(x) >= 0 ? 0.5 : -0.5));
+		std::cout << (x_cbrt * x_cbrt * x_cbrt == x && x %2 != 0 && x >= 100 && x < 1000);
+
+		int x_first = 0;
+		while (x > 10) {
+			x_first = (x /= 10);
+		}
+
+		std::cout << (x_first * x_first * x_first == x && x >= 100 && x < 1000);
+	}
+
+	inline void ex_3_4() {
+		double n = 0;
+		std::cin >> n;
+
+		if (n <= 150) {
+			printf("%.1f\n", 0.4463 * (double)n);
+		}
+
+		else if (n > 150 && n <= 400) {
+			n = ((n - 150) * 0.4663) + (150 * 0.4463);
+			printf("%.1f\n", (double)n);
+		}	
+
+		else {
+			n = (150 * 0.4463) + (250 * 0.4663) + ((n - 400) * 0.5663);
+			printf("%.1f\n", (double)n);
+		}
+	}
+
+	inline void ex_3_5() {
+		int x = 0, n = 0, g = 0;
+		std::cin >> x >> n;
+
+		for (int i = 0; i < n; i++) {
+			if (x > 7) x = 1;
+			if (x < 6) g = g + 250;
+			x++;
+		}	
+
+		std::cout << g << "\n";
+	}
+
+	inline void ex_3_6() {
+		int a = 0, b = 0, c = 0;
+		std::cin >> a >> b >> c;
+
+		if (a > b) std::swap(a, b);
+		if (a > c) std::swap(a, c);
+		if (b > c) std::swap(b, c);
+
+		auto gcd = [](int x, int y) -> int {
+			x = std::abs(x);
+			y = std::abs(y);
+			while (y != 0) {
+				int r = x % y;
+				x = y;
+				y = r;
+			}
+			return x;
+		};
+
+		std::cout << a / gcd(a, c) << "/" << c / gcd(a, b) << "\n";
+	}
+
+	inline void ex_3_7() {
+		int Apple_high[10] = { 0 };
+
+		for (int i = 0; i <= 9; i++) std::cin >> Apple_high[i];
+
+		int TaoTao_high = 0;
+		std::cin >> TaoTao_high;
+		TaoTao_high = TaoTao_high + 30;
+
+		int k = 0;
+		for (int i = 0; i <= 9; i++) if (Apple_high[i] <= TaoTao_high) k++;
+
+		std::cout << k << "\n";
+	}
+
+	inline void ex_3_8() {
+		int a = 0, b = 0, c = 0;
+		std::cin >> a >> b >> c;
+
+		if (a < b) std::swap(a, b);
+		if (a < c) std::swap(a, c);
+		if (b < c) std::swap(b, c);
+
+		if (b + c <= a) {
+			std::cout << "Not triangle" << "\n";
+		}
+
+		else if (b + c > a) {
+			if (b * b + c * c == a * a) std::cout << "Right triangle" << "\n";
+			if (b * b + c * c > a * a) std::cout << "Acute triangle" << "\n";
+			if (b * b + c * c < a * a) std::cout << "Obtuse triangle" << "\n";
+			if (a == b || b == c || c == a) std::cout << "Isosceles triangle" << "\n";
+			if (a == b && b == c) std::cout << "Equilateral triangle" << "\n";
+		}
+	}
+
+	inline void ex_3_9() {
+		int a = 0, b = 0, c = 0;
+		std::cin >> a >> b >> c;
+
+		std::string Letter;
+		std::cin >> Letter;
+
+		if (a > b) std::swap(a, b);
+		if (a > c) std::swap(a, c);
+		if (b > c) std::swap(b, c);
+
+		for (int i = 0; i < 3; i++) {
+			if (Letter[i] == 'A') std::cout << a;
+			if (Letter[i] == 'B') std::cout << b;
+			if (Letter[i] == 'C') std::cout << c;
+			if (i < 2) std::cout << " ";
+		}
+	}
+
+	inline void eg_4_1() {
+		int L = 0;
+		std::cin >> L;
+		for (int i = 1; i <= L; i++) {
+			std::cout <<"Today, I ate " << i << " apple";
+			if (i != 0 && i != 1) {
+				std::cout << "s";
+			}
+			std::cout << ".\n";
+		}
+	}
+
+	inline void eg_4_2() {
+		int n = 0, tmp = 0, minnum = 100000000;
+		std::cin >> n;
+		for (int i = 0; i < n; i++) {
+			std::cin >> tmp;
+			if (tmp < minnum) {
+				minnum = tmp;
+			}
+		}
+
+		std::cout << minnum << "\n";
+	}
+
+	inline void eg_4_3() {
+		int n = 0, k = 0, Asum = 0, Bsum = 0;
+		scanf("%d %d", &n, &k);
+		
+		for (int i = k; i <= n; i += k) {
+			Asum += i;
+		}
+
+		Bsum = (1 + n) * n / 2 - Asum;
+		/*
+		printf("%.1f", double(Asum) / (n / k));
+		printf("%.1f", double(Bsum) / (n - n / k));
+		*/
+		printf("%.1f", static_cast<double>(Asum) / (static_cast<double>(n) / k));
+		printf("%.1f", static_cast<double>(Bsum) / (n - static_cast<double>(n) / k));
+	}
+
+	inline void eg_4_4() {
+		int a = 0, days = 1;
+		std::cin >> a;
+		
+		while (a > 1) {
+			days++;
+			a /= 2;
+		}
+		std::cout << days << "\n";
+	}
+
+	inline void eg_4_5() {
+		int ans = 0, guess = 0;
+		srand(time(0));
+		ans = rand() % 100 + 1;
+
+		do {
+			std::cin >> guess;
+			if (guess < ans) {
+				std::cout << "Too small\n";
+			}
+			if (guess > ans) {
+				std::cout << "Too large\n";
+			}
+		} while (ans != guess);
+
+		std::cout << "You are right!!\n";
+	}
+
+	inline void eg_4_6() {
+		int cnt = 0, n = 0;
+		scanf("%d", &n);
+
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= n - i + 1; j++) {
+				printf("%02d", ++cnt);
+			}
+			printf("\n");
+		}
+	}
+
+	inline void eg_4_7() {
+		long long n = 0, ans = 0;
+		std::cin >> n;
+		
+		for (int i = 1; i <= n; i++) {
+			long long factor = 1;
+			for (int j = 1; j <= i; j++) {
+				factor *= j;
+			}
+			ans += factor;
+		}
+
+		std::cout << ans << "\n";
+	}
+
+	inline void eg_4_8() {
+		int n = 0, x = 0, ans = 0;
+		std::cin >> n >> x;
+
+		for (int i = 1; i <= n; i++) {
+			int tmp = i, num = 0;
+
+			while (tmp != 0) {
+				num = tmp % 10;
+				if (num == x) {
+					ans++;
+				}
+				tmp /= 10;
+			}
+		}
+
+		std::cout << ans << "\n";
+	}
+
+	inline void eg_4_9() {
+		int k = 0, ans = 0;
+		std::cin >> k;
+
+		for (double Sn = 0.0; Sn <= k; ans++, Sn += 1.0 / ans);
+		std::cout << ans << "\n";
+	}
+
+	inline void eg_4_10() {
+		int k = 0, coin = 0, day = 0;
+		std::cin >> k;
+
+		for (int i = 1; ; i++) {
+			for (int j = 1; j <= i; j++) {
+				coin += i;
+				day++;
+
+				if (day == k) {
+					std::cout << coin << "\n";
+					return;
+				}
+			}
+		}
+	}
+
+	inline void eg_4_11() {
+		int s = 0, n = 0;
+		std::cin >> n;
+
+		for (int i = 1; i <= n; i++) {
+			s += i;
+		}
+
+		std::cout << s << "\n";
+
+		//解法2
+		/*
+		int s = 0, i = 0, n = 0;
+		std::cin >> n;
+
+		while (n--) {
+			s += ++i;
+		}
+		
+		std::cout << s << "\n";
+		*/
+	}
+
+	inline void eg_4_12() {
+		int n;
+		std::cin >> n;
+		
+		if (n < 0 || n > 100) {
+			return;
+		}
+		
+		int terms = 10 * n - 1;
+		double sum = terms / 2.0 * (0.1 + (n - 0.1));
+		
+		std::cout << sum << "\n";
+	}
+
+	inline void eg_4_13() {
+		int L = 0, load = 0, ans = 0;
+		std::cin >> L;
+		
+		for (int i = 2; ; i++) {
+			int is_prime = 1;
+			for (int j = 2; j * j <= i; j++) {
+				if (i % j == 0) {
+					is_prime = 0;
+					break;
+				}
+			}
+
+			if (!is_prime) continue;
+			if (i + load > L) {
+				break;
+			}
+
+			std::cout << i << "\n";
+			
+			ans++;
+			load += i;
+		}
+
+		std::cout << ans;
+	}
+
+	inline void eg_4_14() {
+		int a = 0, b = 0;
+		std::cin >> a >> b;
+
+		if ( a <= 5 && b >= 5) {
+			std::cout << 5 << "\n";
+		}
+		if (a <= 7 && b >= 7) {
+			std::cout << 7 << "\n";
+		}
+		if (a <= 11 && b >= 11) {
+			std::cout << 11 << "\n";
+		}
+
+		for (int d1 = 1; d1 <= 9; d1 += 2) {
+			for (int d2 = 0; d2 <= 9; d2++) {
+				int num = 100 * d1 + 10 * d2 + d1;
+				if (num < a) {
+					continue;
+				}
+				if (num > b) {
+					return;
+				}
+				
+				int flag = 1;
+				for (int j = 3; j * j <= num; j++) {
+					if (num % j == 0) {
+						flag = 0;
+						break;
+					}
+				}
+				if (flag) {
+					std::cout << num << "\n";
+				}
+			}
+		}  
+		for (int d1 = 1; d1 <= 9; d1 += 2) {
+			for (int d2 = 0; d2 <= 9; d2++) {
+				for (int d3 = 0; d3 <= 9; d3++) {
+					int num = 10000 * d1 + 1000 * d2 + 100 * d3 + 10 * d2 + d1;
+					if (num < a) {
+						continue;
+					}
+					if (num > b) {
+						return;
+					}
+
+					int flag = 1;
+					for (int j = 3; j * j <= num; j++) {
+						if (num % j == 0) {
+							flag = 0;
+							break;
+						}
+					}
+					if (flag) {
+						std::cout << num << "\n";
+					}
+				}
+			}
+		}
+		for (int d1 = 1; d1 <= 9; d1 += 2) {
+			for (int d2 = 0; d2 <= 9; d2++) {
+				for (int d3 = 0; d3 <= 9; d3++) {
+					for (int d4 = 0; d4 <=9; d4++) {
+						int num = 1000000 * d1 + 100000 * d2 + 10000 * d3 + 1000 * d4 + 100 * d3 + 10 * d2 + d1;
+						if (num < a) {
+							continue;
+						}
+						if (num > b) {
+							return;
+						}
+
+						int flag = 1;
+						for (int j = 3; j * j <= num; j++) {
+							if (num % j == 0) {
+								flag = 0;
+								break;
+							}
+						}
+						if (flag) {
+							std::cout << num << "\n";
+						}
+					}
+				}                   
+			}
+		}
+	}
+
+	inline void ex_4_1() {
+		std::cout << "题目为：如果想求一个数列的最大值，还要求出是第几个数字是最大的，该如何实现呢？\n";
+		std::cout << "回答为：有公式套公式，没有公式就将[值][编号]计入到二维数组vector中，并且只排序\n";
+		std::cout << "[值]，随后获取该值对应的编号并输出\n";
+	}
 }
 
 #endif // LUOGU_BORROWING_BASE_H

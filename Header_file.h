@@ -4,14 +4,16 @@
 #define HEADER_FILE_H
 
 
-//Ñ¡ÔñÐÔ¹Ø±ÕÄ³Ð©±àÒëÆ÷¾¯¸æ
+//Ñ¡ï¿½ï¿½ï¿½Ô¹Ø±ï¿½Ä³Ð©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define _CRT_SECURE_NO_WARNINGS
 
-//Í·ÎÄ¼þ°üº¬
+//Í·ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 #include <iostream>
 #include <vector>
 #include <cmath>
 #include <cstdio>
 #include <algorithm>
+#include <cstdlib>
+#include <ctime>
 
 #endif // !HEADER_FILE_H
