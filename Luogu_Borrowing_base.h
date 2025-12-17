@@ -1146,6 +1146,348 @@ namespace SM{
 		std::cout << "回答为：有公式套公式，没有公式就将[值][编号]计入到二维数组vector中，并且只排序\n";
 		std::cout << "[值]，随后获取该值对应的编号并输出\n";
 	}
+
+	inline void ex_4_2() {
+		double s = 0.0, bu = 2.0, y = 0.0;
+		std::cin >> s;
+
+		if (s <= bu) {
+			std::cout << 1 << "\n";
+			return;
+		}
+		else {
+			while (s > 2) {
+				bu *= 0.98;
+				s -= bu;
+				y++;
+			}
+			y++;
+		}
+
+		std::cout << y;
+	}
+
+	inline void ex_4_3() {
+		std::string Str_i = "";
+		std::cin >> Str_i;
+
+		int Int_i = std::stoi(Str_i);
+		bool Bool_i_Reverse = false;
+		bool Bool_i_Minus = false; 
+
+		if (Int_i == 0) {
+			std::cout << 0 << std::endl;
+			return;
+		}
+
+		if (Int_i % 10 == 0) {
+			Bool_i_Reverse = true;
+		}
+		while(Bool_i_Reverse) {
+			Int_i = Int_i / 10;
+			if (Int_i % 10 != 0) Bool_i_Reverse = false;
+		}
+
+		if (Int_i < 0) {
+			Int_i = -Int_i;
+			Bool_i_Minus = true;
+		}
+
+		Str_i = std::to_string(Int_i);
+
+		std::string Str_i_Reverse;
+		for (int i = Str_i.size() - 1; i >= 0; i--) {
+			Str_i_Reverse += Str_i[i];
+		}
+
+		if (Bool_i_Minus) {
+			std::cout << "-" << Str_i_Reverse << std::endl;
+		}
+		else {
+			std::cout << Str_i_Reverse << std::endl;
+		}
+	}
+
+	inline void ex_4_4() {
+		double n = 0.0;
+    	std::cin >> n;
+
+    	double F_n = (std::pow(((1 + sqrt(5)) / 2), n) - std::pow(((1 - sqrt(5)) / 2), n)) / sqrt(5);
+    	printf("%.2f \n", F_n);
+	}
+
+	inline void ex_4_5() {
+		int n = 0;
+		std::cin >> n;
+
+		std::vector<int> a;
+		int temp1 = 0;
+		for (int i = 0; i < n; i++) {
+			std::cin >> temp1;
+			a.push_back(temp1);
+		}
+		
+		std::sort(a.begin(), a.end());
+		std::cout << a[a.size() - 1] - a[0] << "\n";
+	}
+
+	inline void ex_4_6() {
+		int n =  0;
+		std::cin >> n;
+
+		int temp1 = 0;
+		std::vector<int> a;
+		for (int i = 0; i < n; i++) {
+			std::cin >> temp1;
+			a.push_back(temp1);
+		}
+		
+		int sum = 0;
+		int temp2 = 1;
+		for (int i = 0; i < n - 1; i++) {
+			if (a[i] == a[i + 1] - 1) {
+				temp2++;
+			}
+			else {
+				sum = std::max(sum, temp2);
+				temp2 = 1;
+			}
+		}
+		sum = std::max(sum, temp2);
+
+		std::cout << sum << "\n";
+	}
+
+	inline void ex_4_7() {
+		int n = 0;
+		std::cin >> n;
+
+		for (int i = 2; i <= n; i++) {
+			if (n % i == 0) {
+				std::cout << n / i << "\n";
+				return;
+			}
+		}
+		
+		return;
+	}
+
+	inline void ex_4_8() {
+		int n = 0;
+		std::cin >> n;
+		
+		int current = 1;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				printf("%02d", current);
+				current++;
+			}
+			std::cout << "\n";
+		}
+
+		std::cout << "\n";
+
+		current = 1;
+		int total_width = 2 * n;
+		
+		for (int i = 0; i < n; i++) {
+			int num_count = i + 1;
+			int space_count = total_width - 2 * num_count;
+			
+			for (int s = 0; s < space_count; s++) {
+				std::cout << " ";
+			}
+			
+			for (int j = 0; j < num_count; j++) {
+				printf("%02d", current);
+				current++;
+			}
+			
+			std::cout << "\n";
+		}
+	}
+
+	inline void ex_4_9() {
+		int n = 0;
+		std::cin >> n;
+		std::vector<int> a;
+
+		int temp1 = 0;
+		for (int i = 0; i < n; i++) {
+			std::cin >> temp1;
+			a.push_back(temp1);
+		}
+
+		sort(a.begin(), a.end());
+
+		double sum = 0.0;
+		for (int i = 0; i < n; i++) {
+			sum += a[i];
+		}
+		sum = sum - (a[0] + a[a.size() - 1]);
+		
+		sum = sum / (n - 2);
+
+		printf("%.2f", sum);
+	}
+
+	inline void ex_4_10() {
+		int n = 0;
+    	std::cin >> n;
+
+		n /= 364;
+		if(n <= 103) {
+			std::cout << n - 3 << "\n" << 1 << "\n";
+		}
+		else {
+			if(n % 3 == 0) {
+				std::cout << 99 << "\n" << (n - 99) / 3 << "\n";
+			}
+			if(n % 3 == 1) {
+				std::cout << "100" << "\n" << (n - 100) / 3 << "\n";
+			}
+			if(n % 3 == 2) {
+				std::cout << 98 << "\n" << (n - 98) / 3 << "\n";
+			}
+		}
+	}
+
+	inline void ex_4_11() {
+		double ma = 0.0;
+		int temp1 = 0;
+		std::vector<int> a;
+
+		for (int i = 0; i < 12; i++) {
+			std::cin >> temp1;
+			a.push_back(temp1);
+		}
+
+		int sum = 0;
+		for (int i = 0; i < 12; i++) {
+			int temp2 = 0;
+			temp2 += 300 - a[i];
+			sum += temp2;
+			if (sum < 0) {
+				std::cout << "-" << i + 1 << "\n";
+				return;
+			}
+			if (sum >= 100) {
+				int temp3 = 0;
+				temp3 = sum % 100;
+				ma += sum - temp3;
+				sum = temp3;
+			}
+		}
+
+		std::cout << ma * 1.2 + sum;
+	}
+
+	inline void eg_5_1() {
+		int a[110], n;
+		std::cin >> n;
+
+		for (int i = 0; i < n; i++) {
+			std::cin >> a[i];
+		}	
+		for (int i = 0; i < n; i++) {
+			int cnt = 0;
+			for (int j = i - 1; j >= 0; j--) {
+				if (a[j] < a[i]) {
+					cnt++;
+				}
+			}
+
+			std::cout << cnt << " ";
+		}
+	}
+
+	inline void eg_5_2() {
+		int n = 0, tmp = 0, a[110];
+		do {
+			std::cin >> tmp;
+			a[n] = tmp;
+			n++;
+			//std::cin >> a[n++];
+		} while (tmp != 0);
+		n--;
+		while (n--) {
+			std::cout << a[n] << " ";
+		}
+	}
+
+	inline void eg_5_3() {
+	#define MAXN 205
+
+		int n = 0, num = 0, a[MAXN];
+		std::cin >> n;
+		while (n != 1) {
+			a[num] = n;
+			num++;
+			//a[num++] = n;
+
+			if (n % 2 == 0) {
+				n /= 2;
+			}
+			else {
+				n = 3 * n + 1;
+			}
+		}
+		a[num] = 1;
+		for (int i = num; i >= 0; i--) {
+			std::cout << a[i] << " ";
+		}
+
+	#undef MAXN
+	}
+
+	inline void eg_5_4() {
+		int l = 0, m = 0, tree[10010] = { 0 }, a = 0, b = 0, s = 0;
+		std::cin >> l >> m;
+		
+		//memset(tree, 0, sizeof(tree));
+		for (int i = 0; i < m; i++) {
+			std::cin >> a >> b;
+			for (int j = a; j <= b; j++) {
+				tree[j] = 1;
+			}
+		}
+		for (int i = 0; i <= l; i++) {
+			if (tree[i] == 0) {
+				s++;
+			}
+		}
+		std::cout << s << "\n";
+	}
+
+	inline void eg_5_5() {
+	#define MAXN 1024
+
+		int n = 0, a[3][MAXN], ans = 0;
+		std::cin >> n;
+
+		for (int i = 1; i <= n; i++) {
+			std::cin >> a[0][i] >> a[1][i] >> a[2][i];
+		}
+		for (int i = 1; i <= n - 1; i++) {
+			for (int j = i + 1; j <= n; j++) {
+				if (abs(a[0][i] - a[0][j]) <= 5
+					&& abs(a[1][i] - a[1][j]) <= 5
+					&& abs(a[2][i] - a[2][j]) <= 5
+					&& abs(a[0][i] + a[1][i] + a[2][i] - a[0][j] - a[1][j] - a[2][j]) <= 10
+				) {
+					ans++;
+				}
+			}
+		}
+
+		std::cout << ans << "\n";
+
+	#undef MAXN
+	}
+
+	inline void eg_5_6() {
+		
+	}
 }
 
 #endif // LUOGU_BORROWING_BASE_H

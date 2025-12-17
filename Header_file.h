@@ -15,5 +15,6 @@
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
+#include <string>
 
 #endif // !HEADER_FILE_H
