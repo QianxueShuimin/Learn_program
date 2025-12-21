@@ -1486,7 +1486,168 @@ namespace SM{
 	}
 
 	inline void eg_5_6() {
+	#define MAXN 55
+
+		int n = 0, m = 0, a[MAXN][MAXN] = { 0 };
+		memset(a, 0, sizeof(a));
+		std::cin >> n >> m;
+
+		for (int i = 1; i <= m; i++) {
+			int x1 = 0, y1 = 0, x2 = 0, y2 = 0;
+			std::cin >> x1 >> y1 >> x2 >> y2;
+
+			for (int j = x1; j <= x2; j++) {
+				for (int k = y1; k <= y2; k++) {
+					a[j][k]++;
+				}
+			}
+		}
+
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= n; j++) {
+				std::cout << a[i][j] << (j == n ? '\n' : ' ');
+			}
+		}
+
+	#undef MAXN
+	}
+
+	inline void eg_5_7() {
+		int v[22][22][22], w = 0, x = 0, h = 0, q = 0, x1 = 0, x2 = 0, y1 = 0, y2 = 0, z1 = 0, z2 = 0, ans= 0;
+		std::cin >> w >> x >> h >> q;
+		for (int i = 1; i <= w; i++) {
+			for (int j = 1; j <= x; j++) {
+				for (int k = 1; k <= h; k++) {
+					v[i][j][k] = 1;
+				}
+			}
+		}
+		while (q--) {
+			std::cin >> x1 >> y1 >> z1 >> x2 >> y2 >> z2;
+			for (int i = x1; i <= x2; i++) {
+				for (int j = y1; j <= y2; j++) {
+					for (int k = z1; k <= z2; k++) {
+						v[i][j][k] = 0;
+					}
+				}
+			}
+		}
+		for (int i = 1; i <= w; i++) {
+			for (int j = 1; j <= x; j++) {
+				for (int k = 1; k <= h; k++) {
+					ans += v[i][j][k];
+				}
+			}
+		}
+		std::cout << ans << "\n";
+	}
+
+	inline void eg_5_8() {
+		int n = 0, a[10], num[10] = { 10 };
+		std::cin >> n;
+		for (int i = 1; i <= 7; i++) {
+			std::cin >> a[i];
+		}
+		while (n--) {
+			int ans = 0;
+			for (int i = 1; i <= 7; i++) {
+				int x = 0;
+				std::cin >> x;
+				for (int j = 1; j <= 7; j++) {
+					if (a[j] == x) {
+						ans++;
+					}
+				}
+			}
+			num[ans]++;
+		}
+		for (int i = 7; i; i--) {
+			std::cout << num[i] << (i == 1 ? '\n' : ' ');
+		}
+	}
+
+	inline void eg_5_9() {
+		int n = 0, g[40][40], x = 0, y = 0;
+		std::cin >> n;
 		
+		g[1][n / 2 + 1] = 1;
+		x = 1, y = n / 2 + 1;
+
+		for (int i = 2; i <= n * n; i++) {
+			if (x == 1 && y != n) {
+				g[n][y + 1] = i;
+				x = n, y++;
+			}
+			else if (y == n && x != 1) {
+				g[x - 1][1] = i;
+				x--, y = 1;
+			}
+			else if (x == 1 && y == n) {
+				g[2][n] = i;
+				x = 2;
+			}
+			else if (x != 1 && y != n) {
+				if (g[x - 1][y + 1] == 0) {
+					g[x - 1][y + 1] = i;
+					x--, y++;
+				}
+				else {
+					g[x + 1][y] = i;
+					x++;
+				}
+				continue;
+			}
+		}
+
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; i <= n; j++) {
+				std::cout << g[i][j] << " ";
+			}
+			std::cout << "\n";
+		}
+	}
+
+	inline void eg_5_10() {
+		int tubes[10][8] = { 
+			{6, 0, 1, 2, 4, 5, 6}, {2, 2, 5}, {5, 0, 2, 3, 4, 6}, {5, 0, 2, 3, 5, 6},
+			{4, 1, 2, 3, 5}, {5, 0, 1, 3, 5, 6}, {6, 0, 1, 3, 4, 5, 6},
+			{3, 0, 2, 5}, {7, 0, 1, 2, 3, 4, 5, 6}, {6, 0, 1, 2, 3, 5, 6}
+		};
+		int dot[7][3][2] = {
+			{{0, 0}, {0, 1}, {0, 2}},
+			{{0, 0}, {1, 0}, {2, 0}},
+			{{0, 2}, {1, 2}, {2, 2}},
+			{{2, 0}, {2, 1}, {2, 2}},
+			{{2, 0}, {3, 0}, {4, 0}},
+			{{2, 2}, {3, 2}, {4, 2}},
+			{{4, 0}, {4, 1}, {4, 2}},
+		};
+		char num[110], out[5][500];
+		int n = 0;
+		std::cin >> n;
+
+		for (int i = 0; i < n; i++) {
+			std::cin >> num[i];
+		}
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 4 * n - 1; j++) {
+				out[i][j] = '.';
+			}
+		}
+		for (int i = 0; i < n; i++) {
+			int basex = 0, basey = i * 4, digit = num[i] - '0';
+			for (int j = 1; j <= tubes[digit][0]; j++) {
+				int tubenum = tubes[digit][j];
+				out[basex + dot[tubenum][0][0]][basey + dot[tubenum][0][1]] = 'X';
+				out[basex + dot[tubenum][1][0]][basey + dot[tubenum][1][1]] = 'X';
+				out[basex + dot[tubenum][2][0]][basey + dot[tubenum][2][1]] = 'X';
+			}
+		}
+		for (int i = 0; i < 5; i++, std::cout << "\n") {
+			for (int j = 0; j < 4 * n - 1; j++) {
+				std::cout << out[i][j];
+			}
+		}
 	}
 }
 

@@ -4,7 +4,7 @@
 #include "Starrycoding_Question_bank.h"
 
 int main() {
-	SM::ex_4_2();
+	SM::eg_5_10();
 
 	return 0;
 }

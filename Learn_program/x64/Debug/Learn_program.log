@@ -11,7 +11,7 @@ D:\Microsoft Visual Studio\2022\Project\Learn_program\Luogu_Borrowing_base.h(419
 D:\Microsoft Visual Studio\2022\Project\Learn_program\Luogu_Borrowing_base.h(905,13): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
   (编译源文件“Mian_Learn.program.cpp”)
   
-D:\Microsoft Visual Studio\2022\Project\Learn_program\Luogu_Borrowing_base.h(1197,16): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Microsoft Visual Studio\2022\Project\Learn_program\Luogu_Borrowing_base.h(1199,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   (编译源文件“Mian_Learn.program.cpp”)
   
   Learn_program.vcxproj -> D:\Microsoft Visual Studio\2022\Project\Learn_program\x64\Debug\Learn_program.exe

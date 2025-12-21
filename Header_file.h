@@ -16,5 +16,6 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <cstring>
 
 #endif // !HEADER_FILE_H
